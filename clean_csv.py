@@ -29,7 +29,7 @@ def process_csv(file_path, columns_to_keep):
     print("\nModified CSV saved as 'llvm-ir-loop-optimized-llvm-ir-.csv'.")
 
 
-file_path = "dataset/llvm-irs-optimized-1000.csv"
+file_path = "dataset/llvm-irs-loop-optimized.csv"
 columns_to_keep = [
     "llvm-ir",
     "llvm-optimized-ir",

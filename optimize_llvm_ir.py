@@ -6,7 +6,7 @@ import swifter
 import dask
 from multiprocessing.pool import ThreadPool
 
-df = pd.read_csv("dataset/llvm-irs-1000.csv")
+df = pd.read_csv("dataset/llvm-irs.csv")
 
 """
 Explanation of the Order:
@@ -47,4 +47,4 @@ def optimize(llvm_ir: str) -> str:
 
 df["llvm-optimized-ir"] = df["llvm-ir"].apply(optimize)
 
-df.to_csv("dataset/llvm-irs-loop-optimized-1000.csv", index=False)
+df.to_csv("dataset/llvm-irs-loop-optimized.csv", index=False)

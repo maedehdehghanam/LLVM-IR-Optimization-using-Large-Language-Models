@@ -18,8 +18,8 @@ def dis(bytecode:str) -> str:
         return output
 column_names = ['content', 'language', 'package_source'] 
 data_types = {'content': str, 'language':str , 'package_source':str}
-df = pd.read_csv("dataset/bytecodes_1000_2.csv", header=None, names=column_names,dtype=data_types)
+df = pd.read_csv("dataset/bytecodes.csv", header=None, names=column_names,dtype=data_types)
 df.info()
 df['llvm-ir'] =  df['content'].apply(dis)
 df = df.drop('content', axis = 1)
-df.to_csv('dataset/llvm-irs-1000.csv', index=False)
+df.to_csv('dataset/llvm-irs.csv', index=False)
