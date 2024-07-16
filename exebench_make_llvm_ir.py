@@ -34,30 +34,34 @@ def c_to_llvm_ir(c_code: str) -> str:
             "-o",
             llvm_file_name,
         ]
-        subprocess.run(compile_command, check=True)
+        try:
+            subprocess.run(compile_command, check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Error during compilation: {e.stderr}")
+            return None
 
         with open(llvm_file_name, "r") as llvm_file:
             llvm_ir = llvm_file.read()
+
     finally:
         if c_file_name and os.path.exists(c_file_name):
             os.remove(c_file_name)
         if llvm_file_name and os.path.exists(llvm_file_name):
             os.remove(llvm_file_name)
-
+    print("****************")
     return llvm_ir
 
-column_names = ['func_def']
-data_types = {'func_def': str}
+
+column_names = ["func_def"]
+data_types = {"func_def": str}
 df = pd.read_csv(
     "exebench_codes.csv", header=None, names=column_names, dtype=data_types
 )
 df.info()
-
-# Remove rows with null values
 df = df.dropna(subset=["func_def"])
-
-# Ensure swifter is used correctly
-df["llvm-ir"] = df["func_def"].swifter.apply(lambda x: c_to_llvm_ir(str(x)))
-
+"""num_rows = len(df)
+for i in range(num_rows):
+df["llvm-ir"][i] = c_to_llvm_ir(df["func_def"][i])"""
+df['llvm-ir'] = df['func_def'].apply(c_to_llvm_ir)
 # Save the resulting DataFrame to a new CSV file
 df.to_csv("exebench_codes_llvm_ir.csv", index=False)

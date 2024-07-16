@@ -11,7 +11,5 @@ with open(csv_file, mode="w", newline="") as file:
     writer = csv.DictWriter(file, fieldnames=[column_name])
     for row in dataset:
         writer.writerow(
-            {
-                column_name: f"""#include "exebench_headers.h"\n #include "stdlib.h"\n{row[column_name]}"""
-            }
+            {column_name: "".join(str(row["synth_deps"]) + "\n" + "".join(row["func_def"]))}
         )
