@@ -27,13 +27,11 @@ def compare_code_snippets(code1, code2):
 
 # Example code snippets
 code_snippet_1 = """
-def add(a, b):
-    return a + b
+HI
 """
 
 code_snippet_2 = """
-def add_numbers(x, y):
-    return x + y
+HI its
 """
 
 # Compare the code snippets
