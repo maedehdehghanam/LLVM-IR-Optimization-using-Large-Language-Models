@@ -1,39 +1,22 @@
-import difflib
-import tokenize
-from io import BytesIO
+import re
+def read_ir_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
 
-def tokenize_code(code):
-    tokens = []
-    code_bytes = code.encode('utf-8')
-    token_generator = tokenize.tokenize(BytesIO(code_bytes).readline)
-    
-    for token in token_generator:
-        if token.type in [tokenize.COMMENT, tokenize.NL, tokenize.NEWLINE, tokenize.INDENT, tokenize.DEDENT, tokenize.ENDMARKER]:
-            continue
-        tokens.append(token.string)
-    
-    return tokens
+def tokenize_ir(ir_content):
+    return set(re.findall(r'\b\w+\b', ir_content))
 
-def calculate_similarity(tokens1, tokens2):
+def compute_jaccard_similarity(set1, set2):
+    intersection = set1.intersection(set2)
+    union = set1.union(set2)
+    return len(intersection) / len(union)
 
-    sequence_matcher = difflib.SequenceMatcher(a=tokens1, b=tokens2)
-    return sequence_matcher.ratio()
+ir1 = read_ir_file('out.ll')
+ir2 = read_ir_file('code-llama.ll')
 
-def compare_code_snippets(code1, code2):
-    tokens1 = tokenize_code(code1)
-    tokens2 = tokenize_code(code2)
-    similarity = calculate_similarity(tokens1, tokens2)
-    return similarity
+tokenized_ir1 = (tokenize_ir(ir1))
+tokenized_ir2 =(tokenize_ir(ir2))
 
-# Example code snippets
-code_snippet_1 = """
-HI
-"""
+similarity = compute_jaccard_similarity(tokenized_ir1, tokenized_ir2)
 
-code_snippet_2 = """
-HI its
-"""
-
-# Compare the code snippets
-similarity_score = compare_code_snippets(code_snippet_1, code_snippet_2)
-print(f"Similarity score: {similarity_score:.2f}")
+print(f"Cosine Similarity: {similarity:.4f}")
