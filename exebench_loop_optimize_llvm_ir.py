@@ -4,6 +4,7 @@ import subprocess
 import ast
 import swifter
 import dask
+from tqdm import tqdm 
 from multiprocessing.pool import ThreadPool
 
 df = pd.read_csv("exebenh_cleaned_ir.csv")

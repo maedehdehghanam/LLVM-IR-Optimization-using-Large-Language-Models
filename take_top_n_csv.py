@@ -13,7 +13,7 @@ def take_first_n_rows(input_csv_path, output_csv_path, n):
 
 
 # Example usage
-input_csv_path = "exebenh_cleaned_ir.csv"
+input_csv_path = "exebench-llvm-irs-loop-optimized.csv"
 output_csv_path = "top_n_exebench.csv"
 n = int(input())
 
