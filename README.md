@@ -2,7 +2,7 @@
 
 ## Description
 
-This project focuses on optimizing LLVM intermediate representation (IR) using large language models (LLMs). The goal is to leverage the capabilities of LLMs to enhance the performance and efficiency of code represented in LLVM IR.
+This project is part of a Bachelor Thesis at Shahid Beheshti University of Tehran, that focuses on optimizing LLVM intermediate representation (IR) using large language models (LLMs). The goal is to leverage the capabilities of LLMs to enhance the performance and efficiency of code represented in LLVM IR.
 
 ## Dataset
 The codes used in this project are sourced from the **Exebench** and **ComPile** datasets. These codes have been converted to LLVM-IR and loop-optimized for further processing.
