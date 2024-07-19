@@ -1,4 +1,4 @@
-# LLVM Intermediate Representation Optimization Using Large Language Models
+# LLVM Intermediate Representation Optimization Using LLMs
 
 ## Description
 
