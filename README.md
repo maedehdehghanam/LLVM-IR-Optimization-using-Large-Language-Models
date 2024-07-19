@@ -16,6 +16,6 @@ The codes used in this project are sourced from the **Exebench** and **ComPile**
 
 ## Models
 
-- **Code-gemma**: [[Lmaedehm02/code-gemma-Code-Instruct-Finetune-test](https://huggingface.co/maedehm02/code-gemma-Code-Instruct-Finetune-test/commit/00b94e506d27f24e21e991626c80d64e0971b8c7)](#)
-- **Llama 3**: [[Lmaedehm02/code-gemma-Code-Instruct-Finetune-test](https://huggingface.co/maedehm02/LLama3-Code-Instruct-Finetune-test/commit/4bcaa16ce9063225cc66fe46695185c4acfee725)](#)
-- **Code-Llama**: [[Lmaedehm02/code-gemma-Code-Instruct-Finetune-test](https://huggingface.co/maedehm02/LLama3-Code-Instruct-Finetune-test/commit/4bcaa16ce9063225cc66fe46695185c4acfee725)](#)
+- **Code-gemma**: [[Lmaedehm02/code-gemma-Code-Instruct-Finetuned](https://huggingface.co/maedehm02/code-gemma-Code-Instruct-Finetune-test/commit/00b94e506d27f24e21e991626c80d64e0971b8c7)](#)
+- **Llama 3**: [[maedehm02/Llama3-Code-Instruct-Finetuned](https://huggingface.co/maedehm02/LLama3-Code-Instruct-Finetune-test/commit/4bcaa16ce9063225cc66fe46695185c4acfee725)](#)
+- **Code-Llama**: [[maedehm02/code-llama-Code-Instruct-Finetuned](https://huggingface.co/maedehm02/code-llama-Code-Instruct-Finetune-test/commit/775920a5ab7261955a907ba473cf869d6b64c975)](#)
